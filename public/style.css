@@ -1,7 +1,72 @@
 body{
-  padding-top:80px;
+
+  padding-top:50px;
   word-wrap:break-word;
+  background-size:cover;
+  background-image: url('https://i.pinimg.com/originals/72/44/ac/7244ac665c8d95f1d67cae3e198ea70e.jpg');
 }
-img{
+.titan{
   height: 200px;
+  width:85%;
+}
+.image2{
+  height: 175px;
+}
+
+.containerBoba{
+  width:80%;
+  background-color: rgb(148, 185, 145);
+  margin-left:10%;
+}
+
+h3,h4{
+  text-align: center;
+  font-weight:bolder;
+  padding-bottom:5%;
+}
+.jumbotron{
+width:40%;
+background-color: rgb(148, 185, 145);
+
+}
+
+.messages{
+  padding:5%;
+  font-size: 15px;
+  margin-left:25%;
+  font-weight: bolder;
+  background-color: rgb(148,185,145);
+  width: 55%;
+  font-weight:bolder;
+
+}
+.cashierContainer{
+  position:absolute;
+  bottom:25%;
+  right:10%;
+  background-color: rgb(148,185,145);
+  width:45%;
+  height:50%;
+  text-align: center;
+}
+.well{
+  margin-left:5%;
+font-size: 15px;
+background-color: rgb(148, 185, 145);
+border:2px solid rgb(115, 133, 113);
+font-weight:bolder;
+
+}
+.cashierTitle{
+  padding: 4%;
+  /* margin:10%; */
+  font-size: 18px;
+  
+  
+
+}
+
+
+button{
+  margin:5%;
 }

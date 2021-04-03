@@ -1,16 +1,20 @@
-<!doctype html>
+<!-- Worked with my House Hayden  -->
+
+<!Doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+
+    <title>Attack On Titan Cafe</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+      <link rel="stylesheet" href="font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="container">
+<body> 
+<div class="containerBoba">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1><span class="fa fa-heart-o"></span> Profile Page</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -23,7 +27,7 @@
 
                 <% if (user.local.email) { %>
                     <p>
-                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>id</strong>: <%= user.local.username %><br>
                         <strong>email</strong>: <%= user.local.email %><br>
                         <strong>password</strong>: <%= user.local.password %>
                     </p>
@@ -35,34 +39,43 @@
 
             </div>
         </div>
-        <div class="col-sm-6">
-          <h3>Messages</h3>
-          <ul class="messages">
-          <% for(var i=0; i<messages.length; i++) {%>
-            <li class="message">
-              <span><%= messages[i].name %></span>
-              <span><%= messages[i].msg %></span>
-              <span><%= messages[i].thumbUp %></span>
-              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
-              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+        <div class="col-sm-6" id="page">
+          <h3>Hey Titan Barista!
+          </h3>
+          <h4> Once Order Is Made, Please Click On Thumbs Up </h4>
+
+          <ul class="notFullFilled">
+            <% for(var i=0; i<messages.length; i++) {%>
+                <% if (messages[i].completedBy==null){%>
+            <li class="message"
+            >
+              <span class="name"><%=messages[i].name %></span>&nbsp;
+              <span class="order"><%= messages[i].order %></span>&nbsp;
+              <span class="size"><%= messages[i].size %></span>&nbsp;
+              <!-- <span class="completedBy">"completedBy + "" + <%= messages[i].completedBy %>"</span> -->
+              <span><i class="fa fa-thumbs-up thumbs" aria-hidden="true"></i></span>
             </li>
+            <% } %>
           <% } %>
           </ul>
-
-          <h2>Add a message</h2>
-        <% if (user.local.email) { %>
-          <form action="/messages" method="POST">
-            <input type="text" value="<%= user.local.email %>" name="name">
-            <input type="text" placeholder="message" name="msg">
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <% } %>
+          <ul class="fullFilled">
+            <% for(var i=0; i<messages.length; i++) {%>
+                <% if (messages[i].completedBy!==null){%>
+            <li class="message">
+              <span class="name"><b>Name :</b><%=messages[i].name %></span>&nbsp;
+              <span class="order"><b>Order  :</b><%= messages[i].order %></span>&nbsp;
+              <span class="size"><b>Size :</b><%= messages[i].size %></span>&nbsp;
+              <span class="completedBy"><b>Completed By:</b><%= messages[i].completedBy %></span>
+              <span><i class="fa fa-thumbs-up thumbs" aria-hidden="true"></i></span>
+            </li>
+            <% } %>
+          <% } %>
+        </ul>
 
 </div>
 
 <script src="main.js"></script>
 
 </body>
+
 </html>

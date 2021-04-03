@@ -58,7 +58,9 @@ module.exports = function(passport) {
                 var newUser            = new User();
 
                 // set the user's local credentials
+                //create another property for username 
                 newUser.local.email    = email;
+                newUser.local.username = req.body.username
                 newUser.local.password = newUser.generateHash(password); // use the generateHash function in our user model
 
 				// save the user
@@ -103,7 +105,7 @@ module.exports = function(passport) {
                 return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
 
             // all is well, return successful user
-            return done(null, user);
+            return done(null, user); 
         });
 
     }));

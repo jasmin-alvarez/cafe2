@@ -1,42 +1,35 @@
-var thumbUp = document.getElementsByClassName("fa-thumbs-up");
-var trash = document.getElementsByClassName("fa-trash");
 
-Array.from(thumbUp).forEach(function(element) {
+
+//  Worked with  my House Hayden 
+  
+
+
+var check = document.getElementsByClassName("fa fa-thumbs-up thumbs");
+
+Array.from(check).forEach(function(element) {
       element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
-        fetch('messages', {
+        const listItem = this.closest('.notFullFilled>.message')
+        const name = listItem.querySelector('.name').innerText
+        const order = listItem.querySelector('.order').innerText
+        const size = listItem.querySelector('.size').innerText
+        // const completedBy = listItem.querySelector('.completedBy').innerText
+
+        // const size = this.parentNode.parentNode.childNodes[4].innerText
+
+        fetch('profile', {
           method: 'put',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            'name': name,
-            'msg': msg,
-            'thumbUp':thumbUp
-          })
-        })
-        .then(response => {
-          if (response.ok) return response.json()
-        })
-        .then(data => {
-          console.log(data)
-          window.location.reload(true)
-        })
-      });
-});
-
-Array.from(trash).forEach(function(element) {
-      element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        fetch('messages', {
-          method: 'delete',
-          headers: {
+         headers: {
             'Content-Type': 'application/json'
-          },
+         },
           body: JSON.stringify({
             'name': name,
-            'msg': msg
+            'order': order,
+            'size' : size,
+            // 'completedBy': completedBy
+            // 'size':size,
+        
+
+
           })
         }).then(function (response) {
           window.location.reload()

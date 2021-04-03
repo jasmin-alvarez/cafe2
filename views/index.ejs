@@ -1,7 +1,10 @@
+<!-- Worked with  my House Hayden 
+   -->
+
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>Attack On Titan Cafe</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -10,10 +13,10 @@
 <div class="container">
 
     <div class="jumbotron text-center">
-        <h1>21 Savage Fan Site</h1>
-        <img src="img/savage21.jpg" alt="21 Savage Profile Photo">
+        <h1>Attack On Titan Cafe</h1>
+        <img  class="titan" src="img/boba.gif" alt="boba">
 
-        <p>Login or Signup:</p>
+        <h3>Login or Signup To See Orders:</h3>
 
         <a href="/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a>
         <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span>Signup</a>
@@ -21,5 +24,28 @@
     </div>
 
 </div>
+
+<section class="cashierContainer">
+
+
+   <div class="cashierTitle">
+     <h2>Cashier: Input Order Below</h2>
+   </div>
+   <form class="cashierTitle"action="/messages" method="POST">
+     <input class="nameP" type="text" value="" placeholder="Customer name" name="name">
+     <input class="orderP" type="text" placeholder="Type of Boba" name="order" >
+     <br>
+    
+     <select class="size" name="size">
+       <option  value="Small">Small Size</option>
+       <option value="Medium">Medium Size</option>
+       <option value="Large">Large Size</option>
+     </select>
+
+     <button type="submit">Submit</button>
+   </form>
+   <img  class="image2" src="img/source.gif" alt="bobaS">
+
+   </section>
 </body>
 </html>
